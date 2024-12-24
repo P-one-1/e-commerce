@@ -1,0 +1,32 @@
+<%=  link_to "Switch Organization", organizations_index_path %>
+<h1>Products#index</h1>
+
+<label>Price Range:</label>
+<input type="number" id="filter-min-price" placeholder="Min Price">
+<input type="number" id="filter-max-price" placeholder="Max Price">
+
+<button id="filter-btn">Filter</button>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Sku ID</th>
+    </tr>
+    <% @products.each do |product| %>
+        <tr>
+            <td><%= product.name.capitalize %></td>
+            <td><%= product.price %></td>
+            <td><%= product.sku_id %></td>
+        </tr>
+    <% end %>
+</table>
+
+<% if current_user.present? %>
+    <%= button_to 'Log-out', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+<% else %>
+    <%= button_to 'Log-in', new_user_session_path, method: :get, class: 'btn btn-primary' %>
+<% end %>
+
+<%= button_to 'Download', download_products_path(format: :csv), method: :post, class: 'btn btn-primary' %>
+<%=  link_to "Create new Product", new_product_path %>

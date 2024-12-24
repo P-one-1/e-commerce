@@ -1,0 +1,4 @@
+<h1>Organizations#index</h1>
+<% @organizations.each do |organization| %>
+    <%=  link_to organization.name, products_path(organization_id: organization.id) %>
+<% end %>

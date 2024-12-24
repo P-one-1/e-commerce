@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  extra_charges: 1.5
+  qty: 1
+  organization: one
+  product: one
+
+two:
+  extra_charges: 1.5
+  qty: 1
+  organization: two
+  product: two
